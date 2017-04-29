@@ -59,7 +59,7 @@
                     <navigationItem key="navigationItem" title="Your Meals" id="5su-QP-Lx5">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="iMw-0Z-cWk">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="AddItem" id="Hlt-st-cMp"/>
+                                <segue destination="6ZE-nl-Lsp" kind="presentation" identifier="AddItem" id="Hlt-st-cMp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -68,7 +68,7 @@
             </objects>
             <point key="canvasLocation" x="207.19999999999999" y="122.78860569715144"/>
         </scene>
-        <!--Meal View Controller-->
+        <!--New Meal-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MealViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2cd-wZ-Gpp">
-                                <rect key="frame" x="16" y="40" width="343" height="396"/>
+                                <rect key="frame" x="16" y="84" width="343" height="396"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cqs-Vk-0lJ">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -112,7 +112,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x18-mu-oS6" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
-                                <rect key="frame" x="16" y="492" width="255" height="48"/>
+                                <rect key="frame" x="16" y="521" width="255" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                         </subviews>
@@ -123,19 +123,30 @@
                             <constraint firstAttribute="trailingMargin" secondItem="2cd-wZ-Gpp" secondAttribute="trailing" id="qNK-LH-6vC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Meal" id="JyC-dy-TbU">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="mO9-VJ-y8V"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="LqX-T6-CZb">
+                            <connections>
+                                <segue destination="VNa-WM-cEz" kind="unwind" unwindAction="unwindToMealListWithSender:" id="Qut-wi-wnQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="Cqs-Vk-0lJ" id="k1B-cu-2dt"/>
                         <outlet property="photoImageView" destination="vht-w5-DXs" id="JkP-X3-qJo"/>
+                        <outlet property="ratingControl" destination="x18-mu-oS6" id="w2o-bg-sbi"/>
+                        <outlet property="saveButton" destination="LqX-T6-CZb" id="NB6-ft-wnq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="VNa-WM-cEz" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="6zR-HY-Zef">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="OAW-KQ-TMo"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="900" y="116.49175412293854"/>
+            <point key="canvasLocation" x="1839.2" y="116.49175412293854"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="eh6-7o-Zql">
@@ -143,7 +154,7 @@
                 <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="Stq-Lm-CUa" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1V-Ny-9rs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1564" y="115.59220389805098"/>
+            <point key="canvasLocation" x="2503.1999999999998" y="115.59220389805098"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EOD-02-mEg">
@@ -162,6 +173,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMR-xP-QpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-732" y="122.78860569715144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="W0G-J3-3kR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6ZE-nl-Lsp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1rf-Az-Gmt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bSk-PO-tjd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bxO-Lj-mkg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="116.49175412293854"/>
         </scene>
     </scenes>
     <resources>
